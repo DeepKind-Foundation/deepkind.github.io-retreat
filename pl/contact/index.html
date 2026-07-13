@@ -92,6 +92,7 @@
         <div>
           <h2 style="font-size: 30px; margin-bottom: 10px;">Formularz kontaktowy</h2>
           <form class="formularz-kontakt" onsubmit="return wyslijFormularz(event, '/contact')">
+            <div class="cf-turnstile" data-sitekey="0x4AAAAAAD1RbaE4vh7McAfJ" data-action="turnstile-spin-v1" data-theme="light" data-execution="execute" data-appearance="execute"></div>
             <label for="imie">Imię</label>
             <input type="text" id="imie" name="imie" required>
             <label for="email">Email</label>
@@ -101,7 +102,6 @@
             <label for="wiadomosc">Wiadomość</label>
             <textarea id="wiadomosc" name="wiadomosc" required></textarea>
             <input type="text" name="strona_www" class="pole-pulapka" tabindex="-1" autocomplete="off" aria-hidden="true">
-            <div class="cf-turnstile" data-sitekey="0x4AAAAAAD1RbaE4vh7McAfJ" data-action="turnstile-spin-v1" data-theme="light" data-execution="execute" data-appearance="execute"></div>
             <p class="zgoda">Wysyłając formularz zgadzasz się na przetwarzanie danych w celu odpowiedzi na wiadomość.</p>
             <button type="submit" class="przycisk przycisk-pelny">Wyślij wiadomość</button>
           </form>

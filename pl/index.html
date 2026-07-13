@@ -282,10 +282,12 @@
       <h2>Dołącz do społeczności Deep &amp; Kind</h2>
       <p class="wstep">Informacje o kolejnych wyjazdach, przemyślane treści i zaproszenia na nadchodzące doświadczenia.</p>
       <form class="formularz-newsletter" onsubmit="return wyslijFormularz(event, '/newsletter')">
-        <input type="email" name="email" placeholder="Twój adres email" required aria-label="Twój adres email">
-        <input type="text" name="strona_www" class="pole-pulapka" tabindex="-1" autocomplete="off" aria-hidden="true">
         <div class="cf-turnstile" data-sitekey="0x4AAAAAAD1RbaE4vh7McAfJ" data-action="turnstile-spin-v1" data-theme="light" data-execution="execute" data-appearance="execute"></div>
-        <button type="submit" class="przycisk przycisk-pelny">Zapisz się</button>
+        <div class="formularz-newsletter-pola">
+          <input type="email" name="email" placeholder="Twój adres email" required aria-label="Twój adres email">
+          <input type="text" name="strona_www" class="pole-pulapka" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <button type="submit" class="przycisk przycisk-pelny">Zapisz się</button>
+        </div>
       </form>
       <p class="formularz-info" id="formularz-info"></p>
       <p class="zgoda">Zapisując się, zgadzasz się na otrzymywanie wiadomości od Fundacji DeepKind. Możesz wypisać się w każdej chwili.</p>

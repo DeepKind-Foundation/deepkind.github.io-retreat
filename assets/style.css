@@ -164,7 +164,8 @@ section { padding: 110px 0; }
 .newsletter { text-align: center; }
 .newsletter h2 { font-size: clamp(38px, 5vw, 56px); margin-bottom: 24px; max-width: 700px; margin-left: auto; margin-right: auto; }
 .newsletter .wstep { max-width: 620px; margin: 0 auto 50px; font-size: 18px; }
-.formularz-newsletter { display: flex; gap: 16px; max-width: 640px; margin: 0 auto 26px; }
+.formularz-newsletter { max-width: 640px; margin: 0 auto 26px; }
+.formularz-newsletter-pola { display: flex; gap: 16px; }
 .formularz-newsletter input[type="email"] {
   flex: 1; padding: 18px 22px; font-family: var(--font-tekst); font-size: 16px; color: var(--grafit);
   background: var(--kremowa-karta); border: 1px solid var(--linia); border-radius: 6px;
@@ -174,7 +175,7 @@ section { padding: 110px 0; }
 .formularz-info { margin-top: 18px; font-size: 15px; color: var(--terakota); display: none; }
 .formularz-info.formularz-sukces { color: var(--zielen-ciemna); }
 .pole-pulapka { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
-.cf-turnstile { margin: 20px 0; }
+.cf-turnstile { margin: 0 auto 20px; }
 
 /* ---------- FAQ ---------- */
 .faq-lista { max-width: 900px; }
@@ -309,7 +310,7 @@ section { padding: 110px 0; }
   .filary, .trzy-cechy { grid-template-columns: 1fr; gap: 44px; }
   .dla-kogo-siatka, .overview-siatka, .dwie-kolumny, .cennik, .kontakt-siatka { grid-template-columns: 1fr; gap: 50px; }
   .karty { grid-template-columns: 1fr; }
-  .formularz-newsletter { flex-direction: column; }
+  .formularz-newsletter-pola { flex-direction: column; }
   .stopka-siatka { grid-template-columns: 1fr; gap: 40px; }
   .karta-tresc { padding: 30px 26px 36px; }
   .faq-pytanie { font-size: 21px; }
