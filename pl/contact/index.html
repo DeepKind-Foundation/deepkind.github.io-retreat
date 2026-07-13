@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kontakt — Deep &amp; Kind Retreats | Napisz do nas</title>
+  <meta name="description" content="Skontaktuj się z Deep & Kind Retreats: pytania o najbliższe edycje, zaproszenia do współpracy, prośby od organizacji. hello@deepkind.org.">
+  <link rel="canonical" href="https://retreat.deepkind.org/pl/contact">
+  <link rel="alternate" hreflang="pl" href="https://retreat.deepkind.org/pl/contact">
+  <link rel="alternate" hreflang="en" href="https://retreat.deepkind.org/en/contact">
+  <link rel="alternate" hreflang="x-default" href="https://retreat.deepkind.org/pl/contact">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pl_PL">
+  <meta property="og:site_name" content="Deep &amp; Kind Retreats">
+  <meta property="og:title" content="Kontakt — Deep &amp; Kind Retreats">
+  <meta property="og:description" content="Pytania o najbliższe edycje, zaproszenia do współpracy, prośby od organizacji - wszystko zaczyna się od krótkiej wiadomości.">
+  <meta property="og:url" content="https://retreat.deepkind.org/pl/contact">
+  <meta property="og:image" content="https://retreat.deepkind.org/images/og-cover.jpg">
+  <meta name="theme-color" content="#2E3D2F">
+  <link rel="icon" href="/images/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/style.css">
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Kontakt — Deep & Kind Retreats",
+    "url": "https://retreat.deepkind.org/pl/contact",
+    "inLanguage": "pl-PL",
+    "about": { "@type": "Organization", "name": "Fundacja DeepKind", "email": "hello@deepkind.org", "url": "https://deepkind.org" }
+  }
+  </script>
+</head>
+<body>
+
+  <header class="naglowek naglowek-staly">
+    <div class="kontener">
+      <a href="/pl" class="logo">Deep &amp; Kind</a>
+      <button class="menu-przycisk" aria-label="Otwórz menu" aria-expanded="false" onclick="przelaczMenu(this)">&#9776;</button>
+      <nav aria-label="Nawigacja główna">
+        <ul class="menu" id="menu">
+          <li><a href="/pl#idea">Idea</a></li>
+          <li><a href="/pl#dla-kogo">Dla kogo</a></li>
+          <li><a href="/pl/retreats">Nadchodzące wyjazdy</a></li>
+          <li><a href="/pl#organizator">Organizator</a></li>
+          <li><a href="/pl/blog">Blog</a></li>
+          <li><a href="/pl#faq">FAQ</a></li>
+          <li><a href="/pl/contact">Kontakt</a></li>
+        </ul>
+      </nav>
+      <div class="jezyki">
+        <a href="/pl/contact" class="aktywny" aria-current="page">PL</a> / <a href="/en/contact">EN</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="podstrona-naglowek">
+    <div class="kontener">
+      <p class="okruszki"><a href="/pl">Strona główna</a> &rsaquo; Kontakt</p>
+      <h1>Napisz do nas</h1>
+      <p class="wstep">Pytania o najbliższe edycje, zaproszenia do współpracy, prośby od organizacji - wszystko zaczyna się od krótkiej wiadomości.</p>
+    </div>
+  </div>
+
+  <section style="padding-top: 0;">
+    <div class="kontener">
+      <div class="kontakt-siatka">
+        <div>
+          <div class="kontakt-blok">
+            <h3>Mail bezpośredni</h3>
+            <p><a href="mailto:hello@deepkind.org" class="link-podkreslony">hello@deepkind.org</a></p>
+          </div>
+          <div class="kontakt-blok">
+            <h3>Fundacja DeepKind</h3>
+            <p>Inicjatywa, która stoi za Deep &amp; Kind Retreats.</p>
+          </div>
+          <div class="kontakt-blok">
+            <h3>Zanim napiszesz</h3>
+            <p>Część odpowiedzi znajdziesz w sekcji najczęstszych pytań.</p>
+            <p style="margin-top: 14px;"><a href="/pl#faq" class="link-podkreslony">Zobacz FAQ</a></p>
+          </div>
+        </div>
+
+        <!-- ============================================================
+             FORMULARZ KONTAKTOWY
+             Wysyłka do Cloudflare Workera (baza D1). Adres API: assets/skrypty.js.
+             Instrukcja w INSTRUKCJA.md.
+             ============================================================ -->
+        <div>
+          <h2 style="font-size: 30px; margin-bottom: 10px;">Formularz kontaktowy</h2>
+          <form class="formularz-kontakt" onsubmit="return wyslijFormularz(event, '/contact')">
+            <label for="imie">Imię</label>
+            <input type="text" id="imie" name="imie" required>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+            <label for="temat">Temat</label>
+            <input type="text" id="temat" name="temat" required>
+            <label for="wiadomosc">Wiadomość</label>
+            <textarea id="wiadomosc" name="wiadomosc" required></textarea>
+            <input type="text" name="strona_www" class="pole-pulapka" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <div class="cf-turnstile" data-sitekey="0x4AAAAAAD1RbaE4vh7McAfJ" data-action="turnstile-spin-v1"></div>
+            <p class="zgoda">Wysyłając formularz zgadzasz się na przetwarzanie danych w celu odpowiedzi na wiadomość.</p>
+            <button type="submit" class="przycisk przycisk-pelny">Wyślij wiadomość</button>
+          </form>
+          <p class="formularz-info" id="formularz-info"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="stopka">
+    <div class="kontener">
+      <div class="stopka-siatka">
+        <div>
+          <a href="/pl" class="logo">Deep &amp; Kind</a>
+          <p>Kameralne wyjazdy dla kobiet w tech, science i innowacjach.</p>
+        </div>
+        <div>
+          <h3>Eksploruj</h3>
+          <ul>
+            <li><a href="/pl#idea">Idea</a></li>
+            <li><a href="/pl#dla-kogo">Dla kogo</a></li>
+            <li><a href="/pl/retreats">Nadchodzące wyjazdy</a></li>
+            <li><a href="/pl/blog">Blog</a></li>
+            <li><a href="/pl#faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Kontakt</h3>
+          <ul>
+            <li><a href="mailto:hello@deepkind.org">hello@deepkind.org</a></li>
+            <li><a href="/pl/contact">Kontakt</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Informacje</h3>
+          <ul>
+            <li><a href="https://deepkind.org/" target="_blank" rel="noopener">Projekty Fundacji DeepKind</a></li>
+            <li><a href="https://deepkind.org/polityka-cookies" target="_blank" rel="noopener">Polityka cookies</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="stopka-dol">
+        <span>&copy; 2026 DeepKind Foundation. Wszystkie prawa zastrzeżone.</span>
+        <span>retreat.deepkind.org</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/skrypty.js"></script>
+</body>
+</html>
