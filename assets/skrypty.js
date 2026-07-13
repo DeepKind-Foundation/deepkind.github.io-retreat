@@ -25,12 +25,26 @@ function przelaczFaq(przycisk) {
 // Adres wklej po wdrożeniu workera - instrukcja w cf-worker/README.md i w INSTRUKCJA.md.
 var FORMULARZE_API = 'https://deep-kind-forms.dkretreatfgh61bnql.workers.dev'; // np. https://deep-kind-forms.twoje-konto.workers.dev
 
+// Turnstile z data-execution="execute" nie startuje sam - trzeba go odpalić
+// ręcznie i poczekać na token, zanim formularz faktycznie się wyśle.
+function wykonajTurnstile(kontener) {
+  return new Promise(function (resolve, reject) {
+    if (!window.turnstile || !kontener) { resolve(); return; }
+    window.turnstile.reset(kontener);
+    window.turnstile.execute(kontener, {
+      callback: function () { resolve(); },
+      'error-callback': function () { reject(new Error('weryfikacja_nieudana')); }
+    });
+  });
+}
+
 async function wyslijFormularz(zdarzenie, endpoint) {
   zdarzenie.preventDefault();
   var formularz = zdarzenie.target;
   var info = formularz.parentElement.querySelector('.formularz-info');
   var przycisk = formularz.querySelector('button[type="submit"]');
   var tekstPrzycisku = przycisk.textContent;
+  var kontenerTurnstile = formularz.querySelector('.cf-turnstile');
 
   if (FORMULARZE_API.indexOf('WKLEJ-TU') !== -1) {
     if (info) {
@@ -45,6 +59,8 @@ async function wyslijFormularz(zdarzenie, endpoint) {
   przycisk.textContent = 'Wysyłanie…';
 
   try {
+    await wykonajTurnstile(kontenerTurnstile);
+
     var odpowiedz = await fetch(FORMULARZE_API + endpoint, {
       method: 'POST',
       body: new FormData(formularz)
