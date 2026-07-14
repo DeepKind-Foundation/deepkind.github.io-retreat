@@ -29,9 +29,8 @@
   <meta name="theme-color" content="#2E3D2F">
   <link rel="icon" href="/images/favicon.png" type="image/png">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="preload" href="/assets/fonts/playfair-display-latin-500.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/inter-latin-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/assets/style.css">
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
@@ -129,8 +128,8 @@
       <p class="motto">Zwolnij. Wróć do siebie. Połącz się na nowo.</p>
       <p class="opis">Kameralne wyjazdy łączące naturę, świadomy ruch, głębokie rozmowy i prawdziwy odpoczynek - dla osób z tech, science i innowacji.</p>
       <div class="hero-przyciski">
-        <a href="/pl/retreats" class="przycisk przycisk-pelny">Zobacz wyjazdy</a>
-        <a href="#newsletter" class="przycisk przycisk-obrys">Dołącz do następnego</a>
+        <a href="/pl/retreats" class="przycisk przycisk-pelny" data-najblizszy-wyjazd>Dołącz do najbliższego wyjazdu</a>
+        <a href="/pl/retreats" class="przycisk przycisk-obrys">Zobacz wszystkie</a>
       </div>
     </div>
   </section>
@@ -212,7 +211,7 @@
       <span class="etykieta" style="margin-bottom: 34px;">Nadchodzące wyjazdy</span>
       <div class="karty">
         <article class="karta">
-          <div class="karta-foto biebrza" role="img" aria-label="Rzeka Biebrza wijąca się przez zielone rozlewiska o poranku, klucz żurawi w locie"></div>
+          <div class="karta-foto biebrza" role="img" aria-label="Biała czapla w locie nad trzcinami i taflą wody biebrzańskiego rozlewiska, w tle las i błękitne niebo"></div>
           <div class="karta-tresc">
             <div class="karta-naglowek">
               <span class="karta-typ">Weekendowy reset</span>
