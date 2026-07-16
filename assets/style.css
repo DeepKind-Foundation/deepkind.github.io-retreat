@@ -247,6 +247,21 @@ section { padding: 110px 0; }
 
 .motto-pytanie { font-family: var(--font-naglowki); font-style: italic; font-size: 26px; color: var(--grafit); margin-top: 44px; }
 
+/* ---------- Założycielka ---------- */
+.zalozycielka-siatka { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 70px; align-items: start; margin-top: 56px; }
+.zalozycielka-foto {
+  aspect-ratio: 4 / 5;
+  background: var(--krem-cieplejszy) url('/images/zalozycielka.jpg') center / cover no-repeat;
+  border: 1px solid var(--linia);
+  border-radius: 4px;
+}
+.zalozycielka-siatka .tekst-sredni { font-size: 15px; max-width: none; }
+.zalozycielka-siatka .tekst-sredni p + p { margin-top: 14px; }
+.zalozycielka-siatka h2 { margin-bottom: 22px; }
+.zalozycielka-podpis { margin-top: 26px; }
+.zalozycielka-podpis .imie { font-family: var(--font-naglowki); font-size: 24px; color: var(--grafit); }
+.zalozycielka-podpis .rola { font-size: 15px; color: var(--tekst); margin-top: 4px; }
+
 /* ---------- Dla kogo ---------- */
 .dla-kogo-siatka { display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: start; }
 .grupy { list-style: none; }
@@ -439,6 +454,8 @@ section { padding: 110px 0; }
   .menu-przycisk { display: block; }
   .filary, .trzy-cechy { grid-template-columns: 1fr; gap: 44px; }
   .dla-kogo-siatka, .overview-siatka, .dwie-kolumny, .cennik, .kontakt-siatka { grid-template-columns: 1fr; gap: 50px; }
+  .zalozycielka-siatka { grid-template-columns: 1fr; gap: 40px; }
+  .zalozycielka-foto { max-width: 420px; }
   .karty { grid-template-columns: 1fr; }
   .formularz-newsletter-pola { flex-direction: column; }
   .stopka-siatka { grid-template-columns: 1fr; gap: 40px; }
