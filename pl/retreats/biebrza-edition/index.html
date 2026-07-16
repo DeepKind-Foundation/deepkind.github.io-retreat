@@ -21,7 +21,6 @@
   <link rel="preload" href="/assets/fonts/playfair-display-latin-500.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/inter-latin-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/assets/style.css">
-  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
   <!-- Schema.org: pełne dane wydarzenia dla Google i modeli AI -->
   <script type="application/ld+json">
@@ -306,25 +305,40 @@
       <p class="termin">11-13 września 2026, Zagroda Kuwasy.</p>
       <p class="limit">Liczba miejsc ograniczona do 15 osób. Decyduje kolejność zgłoszeń.</p>
       <div class="formularz-zapisy">
-        <form class="formularz-kontakt" onsubmit="return wyslijFormularz(event, '/biebrza-signup')">
-          <div class="cf-turnstile" data-sitekey="0x4AAAAAAD1RbaE4vh7McAfJ" data-action="turnstile-spin-v1" data-theme="light" data-execution="execute" data-appearance="execute"></div>
-          <label for="b-imie">Imię</label>
-          <input type="text" id="b-imie" name="imie" required>
-          <label for="b-email">Email</label>
-          <input type="email" id="b-email" name="email" required>
-          <label for="b-pokoj">Rodzaj pokoju</label>
-          <select id="b-pokoj" name="pokoj" required>
-            <option value="" disabled selected>Wybierz rodzaj pokoju</option>
-            <option value="Pokój 2-osobowy">Pokój 2-osobowy - 1250 zł</option>
-            <option value="Pokój 1-osobowy">Pokój 1-osobowy - 1450 zł</option>
-          </select>
-          <label for="b-wiadomosc">Uwagi (dieta, alergie, pytania) - opcjonalnie</label>
-          <textarea id="b-wiadomosc" name="wiadomosc"></textarea>
-          <input type="text" name="strona_www" class="pole-pulapka" tabindex="-1" autocomplete="off" aria-hidden="true">
-          <p class="zgoda">Zapisując się, zgadzasz się na przetwarzanie danych w celu obsługi zgłoszenia na wyjazd.</p>
-          <button type="submit" class="przycisk przycisk-pelny">Zapisz miejsce</button>
-        </form>
-        <p class="formularz-info" id="formularz-info"></p>
+        <div id="mlb2-43815728" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-43815728">
+          <div class="ml-form-embedWrapper embedForm">
+            <div class="ml-form-embedBody row-form">
+              <form class="formularz-kontakt ml-block-form" action="https://assets.mailerlite.com/jsonp/2350815/forms/193159556880139511/subscribe" method="post">
+                <label for="b-imie">Imię</label>
+                <input type="text" id="b-imie" name="fields[imie]" required>
+                <label for="b-email">Email</label>
+                <div class="ml-validate-email ml-validate-required">
+                  <input type="email" id="b-email" name="fields[email]" required aria-required="true">
+                </div>
+                <label for="b-pokoj">Rodzaj pokoju</label>
+                <select id="b-pokoj" name="fields[rodzaj_pokoju]" required>
+                  <option value="" disabled selected>Wybierz rodzaj pokoju</option>
+                  <option value="Pokój dzielony — 1250 zł">Pokój dzielony — 1250 zł</option>
+                  <option value="Pokój pojedynczy — 1450 zł">Pokój pojedynczy — 1450 zł</option>
+                </select>
+                <label for="b-wiadomosc">Uwagi (dieta, alergie, pytania) - opcjonalnie</label>
+                <textarea id="b-wiadomosc" name="fields[uwagi_dieta_alergie_pytania_opcjonalnie]"></textarea>
+                <p class="zgoda">Zapisując się, zgadzasz się na przetwarzanie danych w celu obsługi zgłoszenia na wyjazd. Szczegóły w <a href="https://deepkind.org/polityka-prywatnosci/" class="link-podkreslony" target="_blank" rel="noopener">polityce prywatności</a>.</p>
+                <input type="hidden" name="ml-submit" value="1">
+                <input type="hidden" name="anticsrf" value="true">
+                <button type="submit" class="przycisk przycisk-pelny primary">Zapisz miejsce</button>
+                <button disabled="disabled" style="display: none;" type="button" class="loading">
+                  <div class="ml-form-embedSubmitLoad"></div>
+                  <span class="sr-only">Wysyłanie…</span>
+                </button>
+              </form>
+            </div>
+            <div class="ml-form-successBody row-success" style="display: none">
+              <h4>Dziękujemy za zgłoszenie</h4>
+              <p>Sprawdź skrzynkę — wysłałyśmy Ci e-mail z prośbą o potwierdzenie adresu. Po kliknięciu w link otrzymasz szczegóły płatności i rezerwacji miejsca.</p>
+            </div>
+          </div>
+        </div>
       </div>
       <!-- TODO: podepnij odnośnik do regulaminu wyjazdu -->
       <p class="regulamin-nota">Zapisując się, akceptujesz <a href="#" class="link-podkreslony">Regulamin wyjazdu</a>.</p>
@@ -371,5 +385,18 @@
   </footer>
 
   <script src="/assets/skrypty.js"></script>
+
+  <!-- MailerLite: obsługa wysyłki formularza zapisów -->
+  <script>
+    function ml_webform_success_43815728() {
+      var $ = ml_jQuery || jQuery;
+      $('.ml-subscribe-form-43815728 .row-success').show();
+      $('.ml-subscribe-form-43815728 .row-form').hide();
+    }
+  </script>
+  <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v83147fa8ce2d95cb73ece7f28b469519" type="text/javascript"></script>
+  <script>
+    fetch("https://assets.mailerlite.com/jsonp/2350815/forms/193159556880139511/takel")
+  </script>
 </body>
 </html>

@@ -420,6 +420,10 @@ section { padding: 110px 0; }
 }
 .formularz-kontakt textarea { min-height: 160px; resize: vertical; }
 .formularz-kontakt .zgoda { text-align: left; margin: 22px 0 26px; max-width: none; }
+.formularz-kontakt button.loading { display: inline-flex; align-items: center; justify-content: center; gap: 10px; }
+.ml-form-embedSubmitLoad { display: inline-block; width: 20px; height: 20px; border: 2px solid color-mix(in srgb, var(--zielen-ciemna) 25%, transparent); border-top-color: var(--zielen-ciemna); border-radius: 50%; animation: ml-spin 0.7s linear infinite; }
+@keyframes ml-spin { to { transform: rotate(360deg); } }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 
 /* ---------- Stopka ---------- */
 .stopka { background: var(--zielen-ciemna); color: var(--bialy-cieply); padding: 90px 0 40px; }
