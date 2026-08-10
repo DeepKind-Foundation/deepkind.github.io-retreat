@@ -32,7 +32,6 @@
   <link rel="preload" href="/assets/fonts/playfair-display-latin-500.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/inter-latin-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/assets/style.css">
-  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
   <!-- DANE STRUKTURALNE SCHEMA.ORG (SEO + GEO / widoczność w AI) -->
   <script type="application/ld+json">
@@ -301,22 +300,37 @@
   </section>
 
   <!-- ============ NEWSLETTER ============
-       Wysyłka do Cloudflare Workera (baza D1). Adres API: assets/skrypty.js.
-       Instrukcja w INSTRUKCJA.md. -->
+       Formularz MailerLite (konto 2350815, formularz newslettera 195416430227752288).
+       Wysyłka i walidacja po stronie MailerLite (webforms.min.js na końcu body).
+       Wygląd natywny serwisu - plumbing MailerLite w klasach ml-*. -->
   <section class="newsletter" id="newsletter">
     <div class="kontener">
       <span class="etykieta">Newsletter</span>
       <h2>Dołącz do społeczności Deep &amp; Kind</h2>
       <p class="wstep">Informacje o kolejnych wyjazdach, przemyślane treści i zaproszenia na nadchodzące doświadczenia.</p>
-      <form class="formularz-newsletter" onsubmit="return wyslijFormularz(event, '/newsletter')">
-        <div class="cf-turnstile" data-sitekey="0x4AAAAAAD1RbaE4vh7McAfJ" data-action="turnstile-spin-v1" data-theme="light" data-execution="execute" data-appearance="execute"></div>
-        <div class="formularz-newsletter-pola">
-          <input type="email" name="email" placeholder="Twój adres email" required aria-label="Twój adres email">
-          <input type="text" name="strona_www" class="pole-pulapka" tabindex="-1" autocomplete="off" aria-hidden="true">
-          <button type="submit" class="przycisk przycisk-pelny">Zapisz się</button>
+      <div id="mlb2-44676819" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-44676819">
+        <div class="ml-form-embedWrapper embedForm">
+          <div class="ml-form-embedBody row-form">
+            <form class="formularz-newsletter ml-block-form" action="https://assets.mailerlite.com/jsonp/2350815/forms/195416430227752288/subscribe" method="post">
+              <div class="formularz-newsletter-pola">
+                <div class="ml-validate-email ml-validate-required" style="flex: 1;">
+                  <input type="email" name="fields[email]" placeholder="Twój adres email" required aria-required="true" aria-label="Twój adres email" style="width: 100%;">
+                </div>
+                <input type="hidden" name="ml-submit" value="1">
+                <input type="hidden" name="anticsrf" value="true">
+                <button type="submit" class="przycisk przycisk-pelny primary">Zapisz się</button>
+                <button disabled="disabled" style="display: none;" type="button" class="loading">
+                  <div class="ml-form-embedSubmitLoad"></div>
+                  <span class="sr-only">Wysyłanie…</span>
+                </button>
+              </div>
+            </form>
+          </div>
+          <div class="ml-form-successBody row-success" style="display: none">
+            <p>Dziękujemy! Sprawdź skrzynkę i potwierdź adres, żeby dokończyć zapis do newslettera.</p>
+          </div>
         </div>
-      </form>
-      <p class="formularz-info" id="formularz-info"></p>
+      </div>
       <p class="zgoda">Zapisując się, zgadzasz się na otrzymywanie wiadomości od Fundacji DeepKind. Możesz wypisać się w każdej chwili.</p>
     </div>
   </section>
@@ -425,5 +439,18 @@
   </footer>
 
   <script src="/assets/skrypty.js"></script>
+
+  <!-- MailerLite: obsługa wysyłki formularza newslettera -->
+  <script>
+    function ml_webform_success_44676819() {
+      var $ = ml_jQuery || jQuery;
+      $('.ml-subscribe-form-44676819 .row-success').show();
+      $('.ml-subscribe-form-44676819 .row-form').hide();
+    }
+  </script>
+  <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v83147fa8ce2d95cb73ece7f28b469519" type="text/javascript"></script>
+  <script>
+    fetch("https://assets.mailerlite.com/jsonp/2350815/forms/195416430227752288/takel")
+  </script>
 </body>
 </html>
