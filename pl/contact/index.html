@@ -21,7 +21,6 @@
   <link rel="preload" href="/assets/fonts/playfair-display-latin-500.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/inter-latin-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/assets/style.css">
-  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -85,13 +84,13 @@
 
         <!-- ============================================================
              FORMULARZ KONTAKTOWY
-             Wysyłka do Cloudflare Workera (baza D1). Adres API: assets/skrypty.js.
-             Instrukcja w INSTRUKCJA.md.
+             Wysyłka przez Formsubmit.co -> e-mail na hello@deepkind.org.
+             Statyczny POST bez JS. Po pierwszym zgłoszeniu Formsubmit wyśle
+             na hello@ mail aktywacyjny - trzeba raz kliknąć link aktywacyjny.
              ============================================================ -->
         <div>
           <h2 style="font-size: 30px; margin-bottom: 10px;">Formularz kontaktowy</h2>
-          <form class="formularz-kontakt" onsubmit="return wyslijFormularz(event, '/contact')">
-            <div class="cf-turnstile" data-sitekey="0x4AAAAAAD1RbaE4vh7McAfJ" data-action="turnstile-spin-v1" data-theme="light" data-execution="execute" data-appearance="execute"></div>
+          <form class="formularz-kontakt" action="https://formsubmit.co/hello@deepkind.org" method="POST">
             <label for="imie">Imię</label>
             <input type="text" id="imie" name="imie" required>
             <label for="email">Email</label>
@@ -100,11 +99,14 @@
             <input type="text" id="temat" name="temat" required>
             <label for="wiadomosc">Wiadomość</label>
             <textarea id="wiadomosc" name="wiadomosc" required></textarea>
-            <input type="text" name="strona_www" class="pole-pulapka" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <input type="text" name="_honey" class="pole-pulapka" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <input type="hidden" name="_subject" value="Nowa wiadomość z formularza kontaktowego — Deep &amp; Kind Retreats">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="https://retreat.deepkind.org/pl/contact/dziekujemy/">
             <p class="zgoda">Wysyłając formularz zgadzasz się na przetwarzanie danych w celu odpowiedzi na wiadomość.</p>
             <button type="submit" class="przycisk przycisk-pelny">Wyślij wiadomość</button>
           </form>
-          <p class="formularz-info" id="formularz-info"></p>
         </div>
       </div>
     </div>
