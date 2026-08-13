@@ -218,6 +218,8 @@ section { padding: 110px 0; }
   text-align: center; padding: 0;
   background: linear-gradient(rgba(35,48,36,0.62), rgba(35,48,36,0.62)),
               url('/images/hero-las.jpg') center / cover no-repeat, var(--zielen-ciemna);
+  background: linear-gradient(rgba(35,48,36,0.62), rgba(35,48,36,0.62)),
+              image-set(url('/images/hero-las.webp') type('image/webp'), url('/images/hero-las.jpg') type('image/jpeg')) center / cover no-repeat, var(--zielen-ciemna);
 }
 .hero-tresc { max-width: 860px; padding: 140px 32px 120px; }
 .hero .etykieta { color: var(--bialy-cieply); opacity: 0.9; margin-bottom: 28px; }
@@ -252,6 +254,7 @@ section { padding: 110px 0; }
 .zalozycielka-foto {
   aspect-ratio: 4 / 5;
   background: var(--krem-cieplejszy) url('/images/zalozycielka.jpg') center / cover no-repeat;
+  background: var(--krem-cieplejszy) image-set(url('/images/zalozycielka.webp') type('image/webp'), url('/images/zalozycielka.jpg') type('image/jpeg')) center / cover no-repeat;
   border: 1px solid var(--linia);
   border-radius: 4px;
 }
@@ -282,8 +285,8 @@ section { padding: 110px 0; }
 .karty { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
 .karta { background: var(--kremowa-karta); border: 1px solid var(--linia); border-radius: 4px; overflow: hidden; display: flex; flex-direction: column; }
 .karta-foto { height: 300px; background: var(--zielen-ciemna) center / cover no-repeat; }
-.karta-foto.biebrza { background-image: url('/images/wyjazd-biebrza.jpg'); }
-.karta-foto.jesien { background-image: url('/images/wyjazd-jesien.jpg'); }
+.karta-foto.biebrza { background-image: url('/images/wyjazd-biebrza.jpg'); background-image: image-set(url('/images/wyjazd-biebrza.webp') type('image/webp'), url('/images/wyjazd-biebrza.jpg') type('image/jpeg')); }
+.karta-foto.jesien { background-image: url('/images/wyjazd-jesien.jpg'); background-image: image-set(url('/images/wyjazd-jesien.webp') type('image/webp'), url('/images/wyjazd-jesien.jpg') type('image/jpeg')); }
 .karta-tresc { padding: 38px 40px 44px; display: flex; flex-direction: column; flex: 1; }
 .karta-naglowek { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin-bottom: 22px; }
 .karta-typ { font-size: 12px; font-weight: 600; letter-spacing: 0.26em; text-transform: uppercase; color: var(--terakota); }
@@ -376,7 +379,7 @@ section { padding: 110px 0; }
 .os p { font-size: 16px; max-width: 680px; }
 
 /* ---------- Miejsce, kuchnia, cena ---------- */
-.duze-zdjecie { width: 100%; border-radius: 4px; display: block; margin-top: 40px; }
+.duze-zdjecie { width: 100%; height: auto; border-radius: 4px; display: block; margin-top: 40px; }
 .dwie-kolumny { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-top: 50px; }
 .trzy-cechy { display: grid; grid-template-columns: repeat(3, 1fr); gap: 50px; margin-top: 60px; }
 .cecha { border-top: 1px solid var(--linia); padding-top: 30px; }
