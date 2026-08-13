@@ -31,6 +31,7 @@
 
   <link rel="preload" href="/assets/fonts/playfair-display-latin-500.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/inter-latin-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/images/hero-las.webp" as="image" type="image/webp" fetchpriority="high">
   <link rel="stylesheet" href="/assets/style.css">
 
   <!-- DANE STRUKTURALNE SCHEMA.ORG (SEO + GEO / widoczność w AI) -->
@@ -301,7 +302,7 @@
 
   <!-- ============ NEWSLETTER ============
        Formularz MailerLite (konto 2350815, formularz newslettera 195416430227752288).
-       Wysyłka i walidacja po stronie MailerLite (webforms.min.js na końcu body).
+       Wysyłka i walidacja po stronie MailerLite (webforms.min.js ładowany leniwie w skrypty.js).
        Wygląd natywny serwisu - plumbing MailerLite w klasach ml-*. -->
   <section class="newsletter" id="newsletter">
     <div class="kontener">
@@ -447,10 +448,6 @@
       $('.ml-subscribe-form-44676819 .row-success').show();
       $('.ml-subscribe-form-44676819 .row-form').hide();
     }
-  </script>
-  <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v83147fa8ce2d95cb73ece7f28b469519" type="text/javascript"></script>
-  <script>
-    fetch("https://assets.mailerlite.com/jsonp/2350815/forms/195416430227752288/takel")
   </script>
 </body>
 </html>
