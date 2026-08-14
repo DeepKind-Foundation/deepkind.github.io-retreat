@@ -69,3 +69,30 @@ function przelaczFaq(przycisk) {
     zaladujMailerLite();
   }
 })();
+
+// Odslanianie przy scrollu: elementy delikatnie wjezdzaja, gdy wchodza w kadr.
+// Progressive enhancement - klase ukrycia dodaje JS, wiec bez JS tresc jest widoczna.
+// Szanuje prefers-reduced-motion.
+(function () {
+  if (!('IntersectionObserver' in window)) { return; }
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) { return; }
+  var cele = document.querySelectorAll(
+    '.filar, .objawy li, .karta, .dzien, .cecha, .cena-pozycja, .checklista li, ' +
+    '.faq-pozycja, .kontakt-blok, .wpis, .sekcja-h2, .program-naglowek, .dwie-kolumny > *'
+  );
+  if (!cele.length) { return; }
+  cele.forEach(function (el) { el.classList.add('odslon'); });
+  var obs = new IntersectionObserver(function (wpisy, o) {
+    wpisy.forEach(function (w) {
+      if (!w.isIntersecting) { return; }
+      var el = w.target;
+      var rodzenstwo = el.parentElement
+        ? el.parentElement.querySelectorAll(':scope > .odslon') : [];
+      var idx = Array.prototype.indexOf.call(rodzenstwo, el);
+      if (idx > 0) { el.style.transitionDelay = (Math.min(idx, 6) * 80) + 'ms'; }
+      el.classList.add('odslon-widoczna');
+      o.unobserve(el);
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+  cele.forEach(function (el) { obs.observe(el); });
+})();

@@ -166,7 +166,7 @@ body {
 .kontener { max-width: var(--szerokosc); margin: 0 auto; padding: 0 32px; }
 h1, h2, h3 { font-family: var(--font-naglowki); color: var(--grafit); font-weight: 500; line-height: 1.15; }
 a { color: inherit; }
-section { padding: 110px 0; }
+section { padding: 96px 0; }
 :focus-visible { outline: 2px solid var(--terakota); outline-offset: 3px; }
 
 .etykieta {
@@ -216,9 +216,9 @@ section { padding: 110px 0; }
 .hero {
   position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center;
   text-align: center; padding: 0;
-  background: linear-gradient(rgba(35,48,36,0.62), rgba(35,48,36,0.62)),
+  background: linear-gradient(180deg, rgba(35,48,36,0.32) 0%, rgba(35,48,36,0.55) 52%, rgba(35,48,36,0.80) 100%),
               url('/images/hero-las.jpg') center / cover no-repeat, var(--zielen-ciemna);
-  background: linear-gradient(rgba(35,48,36,0.62), rgba(35,48,36,0.62)),
+  background: linear-gradient(180deg, rgba(35,48,36,0.32) 0%, rgba(35,48,36,0.55) 52%, rgba(35,48,36,0.80) 100%),
               image-set(url('/images/hero-las.webp') type('image/webp'), url('/images/hero-las.jpg') type('image/jpeg')) center / cover no-repeat, var(--zielen-ciemna);
 }
 .hero-tresc { max-width: 860px; padding: 140px 32px 120px; }
@@ -359,10 +359,10 @@ section { padding: 110px 0; }
 }
 
 /* ---------- Program: oś czasu ---------- */
-.program-naglowek { text-align: center; margin-bottom: 40px; }
+.program-naglowek { text-align: left; margin-bottom: 40px; }
 .program-naglowek h2 { font-size: clamp(40px, 5.5vw, 62px); margin-bottom: 26px; }
-.program-motto { font-style: italic; max-width: 640px; margin: 0 auto; font-size: 18px; }
-.dzien { margin-top: 90px; }
+.program-motto { font-style: italic; max-width: 640px; margin: 0; font-size: 18px; }
+.dzien { margin-top: 64px; }
 .dzien-tytul { font-size: clamp(32px, 4vw, 46px); margin-bottom: 10px; }
 .dzien-tytul .ang { color: #6E6E64; }
 .dzien-motto { font-style: italic; margin-bottom: 50px; }
@@ -468,4 +468,63 @@ section { padding: 110px 0; }
   .stopka-siatka { grid-template-columns: 1fr; gap: 40px; }
   .karta-tresc { padding: 30px 26px 36px; }
   .faq-pytanie { font-size: 21px; }
+}
+
+/* ==================================================================
+   DOPRACOWANIE WIZUALNE: ruch, glebia, hero
+   Ruch tylko przy prefers-reduced-motion: no-preference.
+   ================================================================== */
+
+/* --- Odslanianie przy scrollu (klase .odslon dodaje skrypty.js) --- */
+@media (prefers-reduced-motion: no-preference) {
+  .odslon {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1),
+                transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+  .odslon-widoczna { opacity: 1; transform: none; }
+}
+
+/* --- Karty: uniesienie + zblizenie zdjecia na hover --- */
+.karta { box-shadow: 0 1px 2px rgba(35, 48, 36, 0.05); }
+.karta-foto { transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1); }
+@media (prefers-reduced-motion: no-preference) {
+  .karta { transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease; }
+  .karta:hover { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(35, 48, 36, 0.14); }
+  .karta:hover .karta-foto { transform: scale(1.045); }
+}
+
+/* --- Rysowane podkreslenie linkow nawigacji --- */
+.menu a { position: relative; }
+.menu a::after {
+  content: ""; position: absolute; left: 0; bottom: -4px; height: 1px; width: 100%;
+  background: var(--bialy-cieply); transform: scaleX(0); transform-origin: left;
+  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.menu a:hover::after { transform: scaleX(1); }
+
+/* --- Ziarno na ciemnych sekcjach (zabija plaskosc) --- */
+.hero, .manifest, .stopka { position: relative; }
+.hero::before, .manifest::before, .stopka::before {
+  content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  opacity: 0.05; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.hero-tresc, .manifest .kontener, .stopka .kontener { position: relative; z-index: 1; }
+
+/* --- Hero: wskaznik "przewin w dol" --- */
+.hero::after {
+  content: ""; position: absolute; left: 50%; bottom: 34px; z-index: 1;
+  width: 12px; height: 12px; margin-left: -6px; opacity: 0.6;
+  border-right: 2px solid var(--bialy-cieply);
+  border-bottom: 2px solid var(--bialy-cieply);
+  transform: rotate(45deg);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .hero::after { animation: heroScroll 1.8s ease-in-out infinite; }
+  @keyframes heroScroll {
+    0%, 100% { transform: rotate(45deg) translate(0, 0); opacity: 0.3; }
+    50%      { transform: rotate(45deg) translate(4px, 4px); opacity: 0.75; }
+  }
 }
